@@ -47,4 +47,4 @@ df['deaths'] = deaths
 df.to_json('cases.json')
 dict={}
 for i in range(len(regions)) :
-    dict[regions[i]] = (total_cases[i],deaths[i])
+    dict[regions[i]] =  {"total cases":total_cases[i],"deaths":deaths[i]}

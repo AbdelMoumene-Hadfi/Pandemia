@@ -1,9 +1,9 @@
-package com.pandemia.Pendemia.model;
+package com.pandemia.Pendemia.model.user;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.UUID;
 
 @Entity
@@ -14,33 +14,34 @@ public class User {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(name = "ID_USER" , columnDefinition = "BINARY(16)")
     private UUID Id;
+    @Email
     @Column(name = "Email_USER")
-    private String Email;
+    private String email;
     @Column(name = "Name_USER")
     private String Name;
     @Column(name = "Password_USER")
     private String Password;
     @Column(name = "Adresse_USER")
     private String Adresse;
-    @Column(name = "Categorie_USER")
-    private String Categorie;
+    @Column(name = "Ville_USER")
+    private String Ville;
     @Column(name = "Telephone_USER")
     private String Telephone;
 
     public User() {}
 
-    public  User(UUID Id,String Email,String Name) {
+    public  User(UUID Id,String email,String Name) {
         this.Id = Id;
-        this.Email = Email;
+        this.email = email;
         this.Name = Name;
     }
 
-    public User(String Email,String Name,String Password,String Adresse,String Categorie,String Telephone) {
-        this.Email = Email;
+    public User(String email,String Name,String Password,String Adresse,String Ville,String Telephone) {
+        this.email = email;
         this.Name = Name;
         this.Password = Password ;
         this.Adresse = Adresse ;
-        this.Categorie = Categorie ;
+        this.Ville = Ville ;
         this.Telephone = Telephone ;
     }
 
@@ -53,7 +54,7 @@ public class User {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public String getName() {
@@ -68,9 +69,7 @@ public class User {
         return Telephone;
     }
 
-    public String getCategorie() {
-        return Categorie;
-    }
+    public String getVille() { return Ville; }
 
     public void setId(UUID id) {
         Id = id;
@@ -81,7 +80,7 @@ public class User {
     }
 
     public void setEmail(String email) {
-        Email = email;
+        email = email;
     }
 
     public void setPassword(String password) {
@@ -96,9 +95,7 @@ public class User {
         Adresse = adresse;
     }
 
-    public void setCategorie(String categorie) {
-        Categorie = categorie;
-    }
+    public void setVille(String ville) { Ville = ville; }
 }
 
 

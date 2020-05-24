@@ -1,7 +1,8 @@
-package com.pandemia.Pendemia.api;
+package com.pandemia.Pendemia.controllers;
 
 import com.pandemia.Pendemia.Repository.UserRespository;
-import com.pandemia.Pendemia.model.User;
+import com.pandemia.Pendemia.Repository.User_RoleRespository;
+import com.pandemia.Pendemia.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,21 +16,24 @@ import java.util.UUID;
 public class UserController {
     @Autowired
     private UserRespository userRespository ;
+    private User_RoleRespository user_roleRespository ;
 
-
-    /*public UserController(UserRespository userRespository) {
-        this.userRespository = userRespository ;
-    }*/
 
     @PostMapping("/add")
     public void addUser(@RequestBody Map<String , String> body) {
-         User user = new User(body.get("email"),body.get("name"),body.get("password"),body.get("addresse"),body.get("categorie"),body.get("telephone"));
+         User user = new User(body.get("email"),body.get("name"),body.get("password"),body.get("addresse"),body.get("ville"),body.get("telephone"));
          userRespository.save(user);
     }
 
     @PostMapping("/show")
     public Optional<User> getUserbyId(@RequestBody Map<String , UUID> body) {
         return userRespository.findById(body.get("id"));
+    }
+
+    @PostMapping("/login")
+    public Optional<User> login(@RequestBody Map<String , String> body) {
+        System.out.println(body);
+        return userRespository.findByEmail(body.get("email"));
     }
 
     @GetMapping("/all")

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+@CrossOrigin(origins = "*")
 @RequestMapping("api/v1/user")
 @RestController
 public class UserController {
@@ -25,15 +26,11 @@ public class UserController {
          userRespository.save(user);
     }
 
-    @PostMapping("/show")
-    public Optional<User> getUserbyId(@RequestBody Map<String , UUID> body) {
-        return userRespository.findById(body.get("id"));
-    }
 
     @PostMapping("/login")
     public Optional<User> login(@RequestBody Map<String , String> body) {
         System.out.println(body);
-        return userRespository.findByEmail(body.get("email"));
+        return userRespository.findUserByEmail(body.get("email"));
     }
 
     @GetMapping("/all")

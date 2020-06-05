@@ -14,21 +14,21 @@ public class Telephone_Magazin {
     @Column(name = "ID_TELEPHONE" , columnDefinition = "BINARY(16)")
     private UUID Id;
     @Column(name = "ID_MAGAZIN" , columnDefinition = "BINARY(16)")
-    private UUID Magazin;
+    private UUID magazin;
     @Column(name = "Telephone_MAGAZIN")
-    private String Telephone;
+    private String telephone;
 
     public Telephone_Magazin() {}
 
     public Telephone_Magazin(UUID Magazin,String Telephone) {
-        this.Magazin = Magazin ;
-        this.Telephone = Telephone ;
+        this.magazin = Magazin ;
+        this.telephone = Telephone ;
     }
 
     public Telephone_Magazin(UUID Id,UUID Magazin,String Telephone) {
         this.Id = Id ;
-        this.Magazin = Magazin ;
-        this.Telephone = Telephone ;
+        this.magazin = Magazin ;
+        this.telephone = Telephone ;
     }
 
     public void setId(UUID id) {
@@ -40,18 +40,18 @@ public class Telephone_Magazin {
     }
 
     public void setTelephone(String telephone) {
-        Telephone = telephone;
+        telephone = telephone;
     }
 
     public String getTelephone() {
-        return Telephone;
+        return telephone;
     }
 
     public UUID getMagazin() {
-        return Magazin;
+        return magazin;
     }
 
     public void setMagazin(UUID magazin) {
-        Magazin = magazin;
+        magazin = magazin;
     }
 }

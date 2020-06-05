@@ -1,11 +1,15 @@
 package com.pandemia.Pendemia.security;
 
+import com.pandemia.Pendemia.security.jwt.AuthEntryPointJwt;
+import com.pandemia.Pendemia.security.jwt.AuthTokenFilter;
+import com.pandemia.Pendemia.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,8 +20,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(
+        // securedEnabled = true,
+        // jsr250Enabled = true,
+        prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    /*
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
@@ -52,21 +59,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/test/**").permitAll()
+                .antMatchers("/api/v1/role/*").permitAll()
+                .antMatchers("api/v1/type_magazin/*").permitAll()
+                .antMatchers("api/v1/produit/*").permitAll()
+                .antMatchers("api/v1/magazin/*").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
-}*/
-    @Override
+}
+    /*@Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.POST,"/newuser").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/v1/produit/").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/v1/produit/*").permitAll()
-                .antMatchers(HttpMethod.GET,"/master/*").permitAll()
-                .antMatchers(HttpMethod.GET,"/exploreCourse").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/produit/").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/produit/*").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/v1/user/").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/v1/user/*").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/user/").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/user/*").permitAll()
                 .anyRequest().authenticated();
-    }
-}
+    }*/
+

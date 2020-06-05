@@ -8,4 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface Telephone_MagazinRespository extends JpaRepository<Telephone_Magazin, UUID> {
+    long deleteByMagazin(UUID Id);
 }

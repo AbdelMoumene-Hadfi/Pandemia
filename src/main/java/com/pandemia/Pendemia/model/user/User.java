@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -18,7 +20,7 @@ public class User {
     @Column(name = "Email_USER")
     private String email;
     @Column(name = "Name_USER")
-    private String Name;
+    private String name;
     @Column(name = "Password_USER")
     private String Password;
     @Column(name = "Adresse_USER")
@@ -27,18 +29,23 @@ public class User {
     private String Ville;
     @Column(name = "Telephone_USER")
     private String Telephone;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="user_role",
+               joinColumns = @JoinColumn(name="ID_USER"),
+               inverseJoinColumns = @JoinColumn(name="ID_ROLE"))
+    private Set<Role> roles = new HashSet<>();
 
     public User() {}
 
     public  User(UUID Id,String email,String Name) {
         this.Id = Id;
         this.email = email;
-        this.Name = Name;
+        this.name = Name;
     }
 
     public User(String email,String Name,String Password,String Adresse,String Ville,String Telephone) {
         this.email = email;
-        this.Name = Name;
+        this.name = Name;
         this.Password = Password ;
         this.Adresse = Adresse ;
         this.Ville = Ville ;
@@ -58,7 +65,7 @@ public class User {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getPassword() {
@@ -76,7 +83,7 @@ public class User {
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public void setEmail(String email) {
@@ -96,6 +103,14 @@ public class User {
     }
 
     public void setVille(String ville) { Ville = ville; }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 }
 
 

@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Quantite {
     @Id
     @Column(name = "ID_PRODUIT" , columnDefinition = "BINARY(16)")
-    private UUID Produit;
+    private UUID produit;
     @Id
     @Column(name = "ID_MAGAZIN" , columnDefinition = "BINARY(16)")
     private UUID MAGAZIN;
@@ -20,9 +20,9 @@ public class Quantite {
 
     public Quantite() {}
 
-    public Quantite(UUID Produit,UUID MAGAZIN,int Quantite,int Prix) {
+    public Quantite(UUID Produit,UUID MAGAZIN,int Quantite,float Prix) {
         this.MAGAZIN = MAGAZIN ;
-        this.Produit = Produit ;
+        this.produit = Produit ;
         this.Quantite = Quantite ;
         this.Prix = Prix ;
     }
@@ -44,11 +44,11 @@ public class Quantite {
     }
 
     public UUID getProduit() {
-        return Produit;
+        return produit;
     }
 
     public void setProduit(UUID produit) {
-        Produit = produit;
+        this.produit = produit;
     }
 
     public UUID getMAGAZIN() {

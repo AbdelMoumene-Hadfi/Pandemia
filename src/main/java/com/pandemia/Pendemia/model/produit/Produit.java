@@ -3,6 +3,8 @@ package com.pandemia.Pendemia.model.produit;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -17,6 +19,9 @@ public class Produit {
     private String Label;
     @Column(name = "Description_PRODUIT")
     private String Description;
+    @OneToMany(targetEntity = Image_Produit.class)
+    @JoinColumn(name="ID_PRODUIT")
+    private Set<Image_Produit> images = new HashSet<>();
 
     public Produit() {}
 
@@ -53,5 +58,13 @@ public class Produit {
 
     public void setLabel(String label) {
         Label = label;
+    }
+
+    public Set<Image_Produit> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Image_Produit> images) {
+        this.images = images;
     }
 }

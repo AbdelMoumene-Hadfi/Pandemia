@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.UUID;
 
+
 @Entity
 @Table(name = "role")
 public class Role {
@@ -14,29 +15,30 @@ public class Role {
     @Column(name = "ID_ROLE" , columnDefinition = "BINARY(16)")
     private UUID Id;
     @Column(name = "Name_ROLE")
-    private String Name;
+    @Enumerated(EnumType.STRING)
+    private ERole name;
 
     public Role() {}
 
-    public Role(UUID Id , String Name) {
+    public Role(UUID Id , ERole Name) {
         this.Id = Id ;
-        this.Name = Name ;
+        this.name = Name ;
     }
 
-    public Role(String Name) {
-        this.Name = Name ;
+    public Role(ERole Name) {
+        this.name = Name ;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setName(ERole name) {
+        name = name;
     }
 
     public void setId(UUID id) {
         Id = id;
     }
 
-    public String getName() {
-        return Name;
+    public ERole getName() {
+        return name;
     }
 
     public UUID getId() {

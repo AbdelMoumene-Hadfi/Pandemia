@@ -8,7 +8,7 @@ import java.util.UUID;
 @Embeddable
 public class QuantiteKey implements Serializable {
     @Column(name = "ID_PRODUIT" , columnDefinition = "BINARY(16)" , nullable = false)
-    private UUID Produit;
+    private UUID produit;
     @Column(name = "ID_MAGAZIN" , columnDefinition = "BINARY(16)" , nullable = false)
     private UUID MAGAZIN;
 }

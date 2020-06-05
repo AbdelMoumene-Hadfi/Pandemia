@@ -1,10 +1,13 @@
 package com.pandemia.Pendemia.model.magazin;
 
+import com.pandemia.Pendemia.model.Quantite;
 import org.apache.tomcat.jni.Address;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -23,17 +26,23 @@ public class Magazin {
     private String Ville ;
     @Column(name = "Type_MAGAZIN", columnDefinition = "BINARY(16)")
     private UUID Type ;
-    @Column(name = "DebutTravail_MAGAZIN", columnDefinition = "time")
+    @Column(name = "Debut_Travail_MAGAZIN", columnDefinition = "time")
     private Time DebutTravail ;
-    @Column(name = "FinTravail_MAGAZIN", columnDefinition = "time")
+    @Column(name = "Fin_Travail_MAGAZIN", columnDefinition = "time")
     private Time FinTravail ;
     @Column(name = "Id_USER", columnDefinition = "BINARY(16)")
-    private UUID User ;
+    private UUID user ;
+    @OneToMany(targetEntity = Quantite.class)
+    @JoinColumn(name="ID_MAGAZIN")
+    private Set<Quantite> produits = new HashSet<>();
+    @OneToMany(targetEntity = Telephone_Magazin.class)
+    @JoinColumn(name="ID_MAGAZIN")
+    private Set<Quantite> telephones = new HashSet<>();
 
     public Magazin() {}
 
     public Magazin(UUID User,UUID Type,String Label,String Address,String Ville,Time DebutTravail,Time FinTravail ) {
-        this.User = User ;
+        this.user = User ;
         this.Address = Address ;
         this.Label = Label ;
         this.Type = Type ;
@@ -44,7 +53,7 @@ public class Magazin {
 
     public Magazin(UUID Id,UUID User,UUID Type,String Label,String Address,String Ville,Time DebutTravail,Time FinTravail ) {
         this.Id = Id ;
-        this.User = User ;
+        this.user = User ;
         this.Address = Address ;
         this.Label = Label ;
         this.Type = Type ;
@@ -86,11 +95,11 @@ public class Magazin {
     }
 
     public UUID getUser() {
-        return User;
+        return user;
     }
 
     public void setUser(UUID user) {
-        User = user;
+        user = user;
     }
 
     public UUID getType() {
@@ -115,5 +124,21 @@ public class Magazin {
 
     public void setFinTravail(Time finTravail) {
         FinTravail = finTravail;
+    }
+
+    public Set<Quantite> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(Set<Quantite> produits) {
+        this.produits = produits;
+    }
+
+    public Set<Quantite> getTelephones() {
+        return telephones;
+    }
+
+    public void setTelephones(Set<Quantite> telephones) {
+        this.telephones = telephones;
     }
 }

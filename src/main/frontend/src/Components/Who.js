@@ -6,9 +6,7 @@ import axios from 'axios';
 
 class Who extends React.Component {
 	componentDidMount() {
-		axios.get('http://localhost:8080/api/v1/user/all',{headers: {'Access-Control-Allow-Origin': true}})
-		         .then((res) => {console.log(res.data)})
-		         .catch((err) => {console.log(err);})
+		axios.post("http://localhost:8080/api/auth/signin", {"email":"abdo@gmail.com","password":"abdo"}).then((res) => {console.log(res.data)})
   }
 
 	clickHandler(e){

@@ -3,3 +3,5 @@ jdk: oraclejdk11
 
 install: true
 script: mvn spring-boot:run 
+services:
+  - mysql

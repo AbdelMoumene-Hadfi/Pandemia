@@ -10,8 +10,8 @@ WORKDIR /app
 # the dependencies. This is a separate step so the dependencies
 # will be cached unless changes to one of those two files
 # are made.
-COPY package.json package-lock.json ./
-RUN npm install
+COPY package.json  ./
+RUN  npm install
 
 # Copy the main application
 COPY . ./
@@ -24,7 +24,8 @@ ENV REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL}
 RUN npm run build
 
 #### Stage 2: Serve the React application from Nginx
-FROM nginx:10.19.0-alpine
+FROM nginx:1.17.0-alpine
+
 
 # Copy the react build from Stage 1
 COPY --from=build /app/build /var/www

@@ -1,6 +1,8 @@
 language: java
 jdk: oraclejdk11
-
+before_install:
+  - mysql -e 'CREATE DATABASE Pandemia;'
+  - mysql -u test Pandemia < Pandemia.sql
 install: true
 script: mvn spring-boot:run 
 services:

@@ -1,14 +1,14 @@
 from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
-from urllib import *
+import urllib.request
 #
 regions = []
 total_cases = []
 add_cases = []
 #
 url = 'https://covid.hespress.com/'
-html = urlopen(url)
+html = urllib.request.urlopen(url)
 soup = BeautifulSoup(html, 'html.parser')
 table = soup.find("table")
 tbody = table.find("tbody")

@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
-from urllib import *
+import urllib.request 
 import re
 def process_num(num):
     return float(re.sub(r'[^\w\s.]','',num))
 url = 'https://en.wikipedia.org/wiki/COVID-19_pandemic_in_Morocco'
-html = urlopen(url)
+html = urllib.request.urlopen(url)
 soup = BeautifulSoup(html, 'html.parser')
 tables = soup.find_all("table")
 regions = []

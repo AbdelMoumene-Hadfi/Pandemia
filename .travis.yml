@@ -11,6 +11,6 @@ before_install:
   - mysql -e 'CREATE DATABASE Pandemia;'
   - mysql Pandemia < Pandemia.sql
 install: true
-script: mvn spring-boot:run 
+script: mvn test -B
 services:
   - mysql

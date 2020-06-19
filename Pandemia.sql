@@ -15,6 +15,8 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE USER '0xpwn'@'localhost' IDENTIFIED BY 'AbdoHadfi';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO '0xpwn'@'localhost';
 --
 -- Table structure for table `benevolat`
 --
@@ -146,7 +148,7 @@ CREATE TABLE `produit` (
 
 LOCK TABLES `produit` WRITE;
 /*!40000 ALTER TABLE `produit` DISABLE KEYS */;
-INSERT INTO `produit` VALUES (_binary '=Q+r\·æH®»Ñ!\rj\‡Æ','Hp elitebook','pc portable');
+INSERT INTO `produit` VALUES (_binary '=Q+r\ÔøΩHÔøΩ»Ñ!\rj\ÔøΩ','Hp elitebook','pc portable');
 /*!40000 ALTER TABLE `produit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +201,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (_binary '%Ê∞õgsNé•ïΩçI_ç','ROLE_ADMIN'),(_binary ';Q[\r\ŸcL|Æ	KD/','ROLE_USER'),(_binary '<€ë!¿ΩBcÆ^8\ÕD>\œ\Ô','ROLE_PROP');
+INSERT INTO `role` VALUES (_binary '%Ê∞õgsNÔøΩÔøΩÔøΩÔøΩÔøΩI_ÔøΩ','ROLE_ADMIN'),(_binary ';Q[\r\ÔøΩcL|ÔøΩ	KD/','ROLE_USER'),(_binary '<€ë!ÔøΩÔøΩBcÔøΩ^8\ÔøΩD>\ÔøΩ\ÔøΩ','ROLE_PROP');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,7 +252,7 @@ CREATE TABLE `type_magazin` (
 
 LOCK TABLES `type_magazin` WRITE;
 /*!40000 ALTER TABLE `type_magazin` DISABLE KEYS */;
-INSERT INTO `type_magazin` VALUES (_binary 'ü|\Ò2%{I\næ(\Õ\›¿±\Ú','PHARMACIE');
+INSERT INTO `type_magazin` VALUES (_binary 'ÔøΩ|\ÔøΩ2%{I\nÔøΩ(\ÔøΩ\ÔøΩÔøΩÔøΩ\ÔøΩ','PHARMACIE');
 /*!40000 ALTER TABLE `type_magazin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,7 +281,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('abdo@gmail.com','$2a$10$1OkTxo16T6jacF3TmUJCEOZb.xhX.6NUQAJ0NRl6fDXo/XDurIXby','irfane','+212600000000','abdo',_binary '\ﬂ^¡öOAç?¿\Áû_b','rabat');
+INSERT INTO `user` VALUES ('abdo@gmail.com','$2a$10$1OkTxo16T6jacF3TmUJCEOZb.xhX.6NUQAJ0NRl6fDXo/XDurIXby','irfane','+212600000000','abdo',_binary '\ÔøΩ^ÔøΩÔøΩOAÔøΩ?ÔøΩ\ÔøΩÔøΩ_b','rabat');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,7 +310,7 @@ CREATE TABLE `user_role` (
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-INSERT INTO `user_role` VALUES (_binary '\ﬂ^¡öOAç?¿\Áû_b',_binary '%Ê∞õgsNé•ïΩçI_ç');
+INSERT INTO `user_role` VALUES (_binary '\ÔøΩ^ÔøΩÔøΩOAÔøΩ?ÔøΩ\ÔøΩÔøΩ_b',_binary '%Ê∞õgsNÔøΩÔøΩÔøΩÔøΩÔøΩI_ÔøΩ');
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -2,4 +2,4 @@ language: java
 jdk: oraclejdk11
 
 install: true
-script: mvn install
+script: mvn spring-boot:run 

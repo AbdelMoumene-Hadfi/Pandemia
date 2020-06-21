@@ -37,7 +37,7 @@ public class Magazin {
     private Set<Quantite> produits = new HashSet<>();
     @OneToMany(targetEntity = Telephone_Magazin.class)
     @JoinColumn(name="ID_MAGAZIN")
-    private Set<Quantite> telephones = new HashSet<>();
+    private Set<Telephone_Magazin> telephones = new HashSet<>();
 
     public Magazin() {}
 
@@ -134,11 +134,11 @@ public class Magazin {
         this.produits = produits;
     }
 
-    public Set<Quantite> getTelephones() {
+    public Set<Telephone_Magazin> getTelephones() {
         return telephones;
     }
 
-    public void setTelephones(Set<Quantite> telephones) {
+    public void setTelephones(Set<Telephone_Magazin> telephones) {
         this.telephones = telephones;
     }
 }

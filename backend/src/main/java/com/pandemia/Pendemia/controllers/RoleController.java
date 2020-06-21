@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "*")
-@RequestMapping("api/v1/role")
+@RequestMapping("api/role")
 @RestController
 public class RoleController {
     @Autowired

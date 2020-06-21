@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 import java.util.*;
 
 @CrossOrigin(origins = "*")
-@RequestMapping("api/v1/produit")
+@RequestMapping("api/produit")
 @RestController
 public class ProduitController {
     @Autowired

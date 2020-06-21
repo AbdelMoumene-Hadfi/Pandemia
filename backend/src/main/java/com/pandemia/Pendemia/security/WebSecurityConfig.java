@@ -59,29 +59,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/test/**").permitAll()
-                .antMatchers("/api/v1/role/*").permitAll()
-                .antMatchers("api/v1/type_magazin/*").permitAll()
-                .antMatchers("api/v1/produit/*").permitAll()
-                .antMatchers("api/v1/magazin/*").permitAll()
+                .antMatchers("/api/role/**").permitAll()
+                .antMatchers("/api/type_magazin/**").permitAll()
+                .antMatchers("/api/produit/**").permitAll()
+                .antMatchers("/api/magazin/**").permitAll()
+                .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
 }
-    /*@Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST,"/newuser").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/v1/produit/").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/v1/produit/*").permitAll()
-                .antMatchers(HttpMethod.GET,"/api/v1/produit/").permitAll()
-                .antMatchers(HttpMethod.GET,"/api/v1/produit/*").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/v1/user/").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/v1/user/*").permitAll()
-                .antMatchers(HttpMethod.GET,"/api/v1/user/").permitAll()
-                .antMatchers(HttpMethod.GET,"/api/v1/user/*").permitAll()
-                .anyRequest().authenticated();
-    }*/
+
 

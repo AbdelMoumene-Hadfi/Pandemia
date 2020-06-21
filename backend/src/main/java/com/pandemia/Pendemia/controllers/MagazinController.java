@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*")
-@RequestMapping("api/v1/magazin")
+@RequestMapping("api/magazin")
 @RestController
 public class MagazinController {
     @Autowired
@@ -57,7 +57,7 @@ public class MagazinController {
     @PostMapping("/delete")
     @Transactional
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_PROP')")
-    public String deleteProduit(@RequestBody Map<String , UUID> body) {
+    public String deleteMagazin(@RequestBody Map<String , UUID> body) {
         magazinRespository.deleteById(body.get("id"));
         return "Deleted";
     }

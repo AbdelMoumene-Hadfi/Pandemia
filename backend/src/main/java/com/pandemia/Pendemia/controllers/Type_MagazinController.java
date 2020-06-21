@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "*")
-@RequestMapping("api/v1/type_magazin")
+@RequestMapping("api/type_magazin")
 @RestController
 public class Type_MagazinController {
     @Autowired

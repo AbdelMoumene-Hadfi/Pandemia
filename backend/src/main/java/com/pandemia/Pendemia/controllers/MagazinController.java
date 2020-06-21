@@ -37,7 +37,13 @@ public class MagazinController {
 
     @GetMapping("/")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_PROP')")
-    public Optional<Magazin> getMagazin(@RequestBody Map<String , UUID> body) {
+    public List<Magazin> getMagazin() {
+        return magazinRespository.findAll();
+    }
+
+    @PostMapping("/")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_PROP')")
+    public Optional<Magazin> getSpecMagazin(@RequestBody Map<String , UUID> body) {
         return magazinRespository.findById(body.get("id"));
     }
 

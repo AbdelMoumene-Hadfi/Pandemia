@@ -49,7 +49,7 @@ public class ProduitController {
         quantiteRespository.save(quantite);
     }
 
-    @GetMapping("/")
+    @PostMapping("/")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_PROP')")
     public Optional<Produit> getProduit(@RequestBody Map<String , UUID> body) {
         return produitRespository.findById(body.get("id"));

@@ -17,5 +17,6 @@ script:
 services:
   - mysql
 after_success:
+  - cd backend
   - export CODECOV_TOKEN="a69211cd-dea8-432d-94a6-e71bda032d1b"
   - bash <(curl -s https://codecov.io/bash) -t

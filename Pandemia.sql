@@ -15,11 +15,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE USER '0xpwn'@'localhost' IDENTIFIED BY 'AbdoHadfi';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO '0xpwn'@'localhost';
 --
 -- Table structure for table `benevolat`
 --
+CREATE USER '0xpwn'@'localhost' IDENTIFIED BY 'AbdoHadfi';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO '0xpwn'@'localhost';
 
 DROP TABLE IF EXISTS `benevolat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -91,6 +91,7 @@ CREATE TABLE `image_produit` (
 
 LOCK TABLES `image_produit` WRITE;
 /*!40000 ALTER TABLE `image_produit` DISABLE KEYS */;
+INSERT INTO `image_produit` VALUES (_binary '¨NM+sM»¾2\÷R.\é\r','hp',_binary 'Hr\Æ~Fİ“\Éæ“­3'),(_binary '¨NM+sM»¾2\÷R.\é\r','https://people.sissa.it/~delise/hugo/20190214_101425.jpg',_binary '>ªx¹Y,N¾\'\Ñp›\á'),(_binary '_¥Dº\İD³…#Ç¬®×‡','https://people.sissa.it/~delise/hugo/20190214_101425.jpg',_binary '\ôBÄµ\ÒO| ‹Ù!µ®h');
 /*!40000 ALTER TABLE `image_produit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,6 +125,7 @@ CREATE TABLE `magazin` (
 
 LOCK TABLES `magazin` WRITE;
 /*!40000 ALTER TABLE `magazin` DISABLE KEYS */;
+INSERT INTO `magazin` VALUES (_binary 'N\ÅlbûGzŠŞ‹\óI\ny\å','pharmacie elirfane','el irfane',_binary 'Ÿ|\ñ2%{I\n¾(\Í\İÀ±\ò','09:00:00','22:00:00','rabat',_binary '\ß^ÁšOA?À\ç_b'),(_binary 'Wˆ¥“»A€™î’˜n*“','salon de coiffure el irfane','el irfane',_binary 'q²\è3\ÎCOÖ§\Êû\Ğ)\Ë\Õ','11:00:00','23:00:00','Rabat',_binary '\ß^ÁšOA?À\ç_b'),(_binary '\ğG¾©Oä…Ú‚x‚(','librairie elirfane','el irfane',_binary 'Ÿ|\ñ2%{I\n¾(\Í\İÀ±\ò','11:00:00','00:00:00','rabat',_binary '\ß^ÁšOA?À\ç_b');
 /*!40000 ALTER TABLE `magazin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +150,7 @@ CREATE TABLE `produit` (
 
 LOCK TABLES `produit` WRITE;
 /*!40000 ALTER TABLE `produit` DISABLE KEYS */;
-INSERT INTO `produit` VALUES (_binary '=Q+r\ï¿½Hï¿½È„!\rj\ï¿½','Hp elitebook','pc portable');
+INSERT INTO `produit` VALUES (_binary '_¥Dº\İD³…#Ç¬®×‡','hp elite book','ordinateurr'),(_binary '¨NM+sM»¾2\÷R.\é\r','tp-link','routeur');
 /*!40000 ALTER TABLE `produit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,6 +180,7 @@ CREATE TABLE `quantite` (
 
 LOCK TABLES `quantite` WRITE;
 /*!40000 ALTER TABLE `quantite` DISABLE KEYS */;
+INSERT INTO `quantite` VALUES (120,320,_binary '¨NM+sM»¾2\÷R.\é\r',_binary 'N\ÅlbûGzŠŞ‹\óI\ny\å'),(20,2420,_binary '_¥Dº\İD³…#Ç¬®×‡',_binary 'N\ÅlbûGzŠŞ‹\óI\ny\å');
 /*!40000 ALTER TABLE `quantite` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +204,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (_binary '%æ°›gsNï¿½ï¿½ï¿½ï¿½ï¿½I_ï¿½','ROLE_ADMIN'),(_binary ';Q[\r\ï¿½cL|ï¿½	KD/','ROLE_USER'),(_binary '<Û‘!ï¿½ï¿½Bcï¿½^8\ï¿½D>\ï¿½\ï¿½','ROLE_PROP');
+INSERT INTO `role` VALUES (_binary '%æ°›gsN¥•½I_','ROLE_ADMIN'),(_binary ';Q[\r\ÙcL|®	KD/','ROLE_USER'),(_binary '<Û‘!À½Bc®^8\ÍD>\Ï\ï','ROLE_PROP');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,6 +232,7 @@ CREATE TABLE `telephone_magazin` (
 
 LOCK TABLES `telephone_magazin` WRITE;
 /*!40000 ALTER TABLE `telephone_magazin` DISABLE KEYS */;
+INSERT INTO `telephone_magazin` VALUES (_binary 'Wˆ¥“»A€™î’˜n*“','+2123345655',_binary '2í‰­Š€@£¦Z&So\à\ö'),(_binary '\ğG¾©Oä…Ú‚x‚(','+2126856656',_binary 'E„\ğ\ÂOQ¡eËŒ|\ä'),(_binary '\ğG¾©Oä…Ú‚x‚(','+2126756656',_binary 'ÄŒ·!mA¹:–††*r'),(_binary 'N\ÅlbûGzŠŞ‹\óI\ny\å','+2126856656',_binary '…·QÁuFŸ©ëƒ\rˆ\á“'),(_binary 'N\ÅlbûGzŠŞ‹\óI\ny\å','+2126556656',_binary '—¤uez\çK¬šü\ôÏ¿\â\î'),(_binary 'N\ÅlbûGzŠŞ‹\óI\ny\å','+2126756656',_binary '\æ¤\æbCK\ğ¹x\Ò=\ã\×ù');
 /*!40000 ALTER TABLE `telephone_magazin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +256,7 @@ CREATE TABLE `type_magazin` (
 
 LOCK TABLES `type_magazin` WRITE;
 /*!40000 ALTER TABLE `type_magazin` DISABLE KEYS */;
-INSERT INTO `type_magazin` VALUES (_binary 'ï¿½|\ï¿½2%{I\nï¿½(\ï¿½\ï¿½ï¿½ï¿½\ï¿½','PHARMACIE');
+INSERT INTO `type_magazin` VALUES (_binary 'q²\è3\ÎCOÖ§\Êû\Ğ)\Ë\Õ','salon de coiffure'),(_binary 'Ÿ|\ñ2%{I\n¾(\Í\İÀ±\ò','PHARMACIE');
 /*!40000 ALTER TABLE `type_magazin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,7 +285,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('abdo@gmail.com','$2a$10$1OkTxo16T6jacF3TmUJCEOZb.xhX.6NUQAJ0NRl6fDXo/XDurIXby','irfane','+212600000000','abdo',_binary '\ï¿½^ï¿½ï¿½OAï¿½?ï¿½\ï¿½ï¿½_b','rabat');
+INSERT INTO `user` VALUES ('abdo@gmail.com','$2a$10$1OkTxo16T6jacF3TmUJCEOZb.xhX.6NUQAJ0NRl6fDXo/XDurIXby','irfane','+212600000000','abdo',_binary '\ß^ÁšOA?À\ç_b','rabat');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,7 +314,7 @@ CREATE TABLE `user_role` (
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-INSERT INTO `user_role` VALUES (_binary '\ï¿½^ï¿½ï¿½OAï¿½?ï¿½\ï¿½ï¿½_b',_binary '%æ°›gsNï¿½ï¿½ï¿½ï¿½ï¿½I_ï¿½');
+INSERT INTO `user_role` VALUES (_binary '\ß^ÁšOA?À\ç_b',_binary '%æ°›gsN¥•½I_');
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -323,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-19 18:39:03
+-- Dump completed on 2020-06-22  2:30:19

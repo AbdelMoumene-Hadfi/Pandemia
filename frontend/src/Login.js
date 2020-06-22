@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.css';
 import axios from "axios";
 import AuthService from './services/auth-service'
+
 class  Login extends React.Component {
 	constructor() {
     super();
@@ -29,7 +30,8 @@ class  Login extends React.Component {
 	  }
 		//
 		onSubmit(e) {
-			e.preventDefault();}
+			e.preventDefault();
+		}
 		render() {
 	  return (
 			<div className="waj" id="le">

@@ -10,6 +10,8 @@ import Logout from './Logout';
 import Addproduct from './Addproduct';
 import Addmagazin from './Addmagazin';
 import Magazin from './Magazin';
+import MyMagazin from './MyMagazin';
+
 
 
 import './App.css';
@@ -31,6 +33,8 @@ function App() {
         <Route path="/logout" component={Logout}   />
         <Route path="/addproduct" component={Addproduct}   />
         <Route path="/addmagazin" component={Addmagazin}   />
+        <Route path="/mymagazin" component={MyMagazin}   />
+
 
 
 

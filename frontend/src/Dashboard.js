@@ -3,8 +3,10 @@ import axios from "axios";
 import {Card} from 'primereact/card';
 import {Button} from 'primereact/button';
 import { Link} from'react-router-dom';
-import { Container,} from 'react-bootstrap';
+import { Container, Image} from 'react-bootstrap';
 import { Row,Col} from 'react-bootstrap';
+import './Dashbord.css';
+
 
 class Dashboard extends React.Component {
 	constructor() {
@@ -28,11 +30,21 @@ class Dashboard extends React.Component {
 				<Container>
 					<Row>
 						<Col>
-							<Link to="/magazin"><a>Magazin</a></Link>
+							<Link to="/magazin"><Image src={require('./img/check.png')} className="header-image" /></Link>
 						</Col>
 						<Col>
-							<Link to="/addmagazin"><a>Add Magazin</a></Link>
+							<Link to="/addmagazin"><Image src={require('./img/essentials/storef.png')} className="header-image" /></Link>
 						</Col>
+					</Row>
+					<br/>
+					<Row>
+						<Col>
+							<Link to="/mymagazin"><Image src={require('./img/my_shop.png')} className="header-image" /></Link>
+						</Col>
+						<Col>
+							<Link to="/addproduct"><Image src={require('./img/product/product.jpg')} className="header-image" /></Link>
+						</Col>
+
 					</Row>
 				</Container>
 

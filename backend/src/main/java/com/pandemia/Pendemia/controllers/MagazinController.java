@@ -47,7 +47,7 @@ public class MagazinController {
         return magazinRespository.findById(body.get("id"));
     }
 
-    @GetMapping("/mymagazin")
+    @PostMapping("/mymagazin")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_PROP')")
     public List<Magazin> getMyMagazin(@RequestBody Map<String , UUID> body) {
         return magazinRespository.findByUser(body.get("id"));

@@ -13,7 +13,7 @@ import {Dropdown} from 'primereact/dropdown';
 class Addmagazin extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {name : [] ,type : '' , ot : '', ct : '', city : '' ,adress : '' ,tel : '' ,  headers_user : {} };
+      this.state = {name : '' ,type : '' , ot : '', ct : '', city : '' ,adress : '' ,tel : '' ,  headers_user : {} };
     }
     componentWillMount() {
       const user = JSON.parse(localStorage.getItem('user'));
@@ -40,7 +40,7 @@ class Addmagazin extends React.Component {
                   	 fin:this.state.ct,
                   	 telephones:[this.state.tel]};
              axios.post("http://localhost:8080/api/magazin/add",data,{ headers: this.state.headers_user} )
-                  .then(response => {console.log(response.data)});
+                  .then(response => {this.props.history.push(`/magazin`);return;});
            });
     }
     render() {
@@ -156,7 +156,7 @@ class Addmagazin extends React.Component {
                     </Row>
                     <br/>
                     <Row>
-                        <Col><button type="submit">Sign Up</button></Col>
+                        <Col><button type="submit">Add Magazin</button></Col>
                     </Row>
                   </Container>
       					</form>
